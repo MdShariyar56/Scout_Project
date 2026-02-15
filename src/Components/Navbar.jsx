@@ -5,6 +5,7 @@ import { FaBook, FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiLoginBoxFill, RiProfileFill } from "react-icons/ri";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -51,12 +52,12 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-2 justify-end flex-1">
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className={`${linkStyle} ${activeSection === "home" ? activeStyle : ""}`}
             >
                <FaHome size={20} /> HOME
-            </a>
+            </Link>
           </li>
           <li>
             <a
@@ -92,12 +93,12 @@ const Navbar = () => {
           </li>
           
            <li>
-            <a
-              href="#login"
+            <Link
+              to="/select"
               className={`${linkStyle} ${activeSection === "service" ? activeStyle : ""}`}
             >
              <RiLoginBoxFill size={22} /> LOGIN
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -118,13 +119,13 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               onClick={() => setOpen(false)}
               className={`${linkStyle} ${activeSection === "home" ? activeStyle : ""}`}
             >
                <FaHome size={20} /> HOME
-            </a>
+            </Link>
           </li>
           <li>
             <a
@@ -163,13 +164,13 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a
-              href="#login"
+            <Link
+              to="/select"
               onClick={() => setOpen(false)}
               className={`${linkStyle} ${activeSection === "contact" ? activeStyle : ""}`}
             >
                <RiLoginBoxFill size={22} /> LOGIN
-            </a>
+            </Link>
           </li>
         </ul>
 

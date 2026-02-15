@@ -10,7 +10,7 @@ import {
   FaCamera,
 } from "react-icons/fa";
 
-const Register = () => {
+const  TeacherRegister = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     studentId: "",
@@ -117,7 +117,7 @@ const Register = () => {
           </div>
           <h2 className="text-3xl font-bold mt-1">Create an account</h2>
           <span className="text-lg md:text-xl font-semibold text-blue-500">
-            Register to start your Student Account
+            Register to start your Teacher Account
           </span>
 
           <label className="mt-4 cursor-pointer group">
@@ -132,7 +132,7 @@ const Register = () => {
                 <img
                   src={preview}
                   alt="preview"
-                  className="w-full h-full object-cover rounded "
+                  className="w-full h-full object-cover rounded"
                 />
               ) : (
                 <div className="flex flex-col items-center text-white text-xs opacity-80">
@@ -156,7 +156,7 @@ const Register = () => {
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-500 rounded-l-sm h-full w-10 justify-center z-10 ">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-500 rounded-l-sm h-full w-10 justify-center z-10">
                 <FaUser className="text-white" />
               </span>
               <input
@@ -173,11 +173,11 @@ const Register = () => {
           <div className="form-control">
             <label className="label py-1">
               <span className="label-text text-white">
-                Student ID<span className="text-red-500">*</span>
+                Degisnation<span className="text-red-500">*</span>
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm h-full w-10 justify-center z-10">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm z-10 h-full w-10 justify-center">
                 <FaIdCard className="text-white" />
               </span>
               <input
@@ -185,7 +185,7 @@ const Register = () => {
                 name="studentId"
                 value={formData.studentId}
                 onChange={handleChange}
-                placeholder="Student ID"
+                placeholder="Degisnation"
                 className="input input-bordered w-full pl-12 bg-gray-900/50 border-blue-500/50 focus:border-blue-400 text-white"
               />
             </div>
@@ -198,7 +198,7 @@ const Register = () => {
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm h-full w-10 justify-center z-10">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm z-10 h-full w-10 justify-center">
                 <FaEnvelope className="text-white" />
               </span>
               <input
@@ -219,7 +219,7 @@ const Register = () => {
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm h-full w-10 justify-center z-10">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm z-10 h-full w-10 justify-center">
                 <FaPhoneAlt className="text-white" />
               </span>
               <input
@@ -305,7 +305,7 @@ const Register = () => {
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm h-full w-10 justify-center z-10">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm z-10 h-full w-10 justify-center">
                 <FaLock className="text-white" />
               </span>
               <input
@@ -329,7 +329,7 @@ const Register = () => {
               </span>
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm h-full w-10 justify-center z-10">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 bg-blue-600 rounded-l-sm z-10 h-full w-10 justify-center">
                 <FaLock className="text-white" />
               </span>
               <input
@@ -338,7 +338,7 @@ const Register = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm Password"
-                className="input input-bordered w-full pl-12 pr-10 bg-gray-900/50 border-blue-500/50 focus:border-blue-400 text-white "
+                className="input input-bordered w-full pl-12 pr-10 bg-gray-900/50 border-blue-500/50 focus:border-blue-400 text-white"
               />
               <span className="absolute inset-y-0 right-3 flex items-center cursor-pointer opacity-70">
                 <FaEyeSlash />
@@ -361,4 +361,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default TeacherRegister;
