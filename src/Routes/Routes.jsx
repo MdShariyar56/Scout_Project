@@ -5,6 +5,7 @@ import Register from "../Pages/Auth/Register";
 import LoginPage from "../Pages/Auth/Login";
 import TeacherRegister from "../Pages/Auth/TeacherRegister";
 import SelectPage from "../Pages/Auth/SelectPage";
+import AllBooksPage from "../Pages/Book/AllBooksPage";
 
 
 export const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
                 index: true,
                 element:<AllPAge></AllPAge>,
             },
+            {
+                path: "/all-books",
+                element: <AllBooksPage></AllBooksPage>
+            }
             
         ]
     },
