@@ -10,7 +10,7 @@ import {
   FaCamera,
 } from "react-icons/fa";
 
-const  TeacherRegister = () => {
+const TeacherRegister = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     studentId: "",
@@ -42,13 +42,11 @@ const  TeacherRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check image
     if (!image) {
       Swal.fire("Oops!", "Please upload your profile image", "error");
       return;
     }
 
-    // Check all fields filled
     for (const key in formData) {
       if (formData[key] === "") {
         Swal.fire("Oops!", "Please fill all the fields", "error");
@@ -56,13 +54,11 @@ const  TeacherRegister = () => {
       }
     }
 
-    // Check password match
     if (formData.password !== formData.confirmPassword) {
       Swal.fire("Oops!", "Passwords do not match", "error");
       return;
     }
 
-    // If all good
     Swal.fire({
       title: "Registered Successfully!",
       text: "Your account has been created.",
@@ -70,7 +66,6 @@ const  TeacherRegister = () => {
       confirmButtonColor: "#2563eb",
     });
 
-    // Reset form if needed
     setFormData({
       fullName: "",
       studentId: "",

@@ -42,13 +42,11 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check image
     if (!image) {
       Swal.fire("Oops!", "Please upload your profile image", "error");
       return;
     }
 
-    // Check all fields filled
     for (const key in formData) {
       if (formData[key] === "") {
         Swal.fire("Oops!", "Please fill all the fields", "error");
@@ -62,7 +60,6 @@ const Register = () => {
       return;
     }
 
-    // If all good
     Swal.fire({
       title: "Registered Successfully!",
       text: "Your account has been created.",
@@ -70,7 +67,6 @@ const Register = () => {
       confirmButtonColor: "#2563eb",
     });
 
-    // Reset form if needed
     setFormData({
       fullName: "",
       studentId: "",

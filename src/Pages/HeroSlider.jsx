@@ -61,7 +61,6 @@ const HeroSlider = () => {
               className="relative w-full h-[65vh] md:h-[85vh] bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
 
               <motion.div

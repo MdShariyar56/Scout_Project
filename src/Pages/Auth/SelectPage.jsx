@@ -14,7 +14,7 @@ const SelectPage = () => {
           BRAHMANBARIA POLYTECHNIC INSTITUTE ROVER UNIT
         </h1>
         <p className="text-2xl md:text-3xl text-blue-500 font-semibold pb-6">
-         A single smile clears the mind - Rovering to Success
+          A single smile clears the mind - Rovering to Success
         </p>
         <p className="text-2xl text-white pb-2 md:pb-6 font-semibold">
           Please select your Position
@@ -22,21 +22,31 @@ const SelectPage = () => {
       </div>
       <div className=" flex justify-center items-center ">
         <div className="flex flex-col justify-center items-center gap-6">
-          <Link to="/tregister" className="border-4 border-blue-500 rounded-xl px-20 py-6 ">
+          <Link
+            to="/tregister"
+            className="border-4 border-blue-500 rounded-xl px-20 py-6 "
+          >
             <img
               src="https://i.ibb.co/HpXs6Wcm/Ellipse-3.png"
               alt="img1"
               className="w-40 mx-auto"
             />
-            <p className="text-center text-xl font-bold uppercase">Teacher Account</p>
+            <p className="text-center text-xl font-bold uppercase">
+              Teacher Account
+            </p>
           </Link>
-          <Link to="/register" className="border-4 border-blue-500 rounded-xl px-20 py-6">
+          <Link
+            to="/register"
+            className="border-4 border-blue-500 rounded-xl px-20 py-6"
+          >
             <img
               src="https://i.ibb.co/HpXs6Wcm/Ellipse-3.png"
               alt="img1"
               className="w-40 mx-auto"
             />
-                        <p className="text-center text-xl font-bold uppercase">Student Account</p>
+            <p className="text-center text-xl font-bold uppercase">
+              Student Account
+            </p>
           </Link>
         </div>
       </div>

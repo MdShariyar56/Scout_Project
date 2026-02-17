@@ -2,38 +2,36 @@ import React from "react";
 
 const About = () => {
   return (
-    <section  className="bg-white py-10 px-6 md:px-12 lg:px-24 ">
-      <div className="text-center max-w-4xl mx-auto mb-12">
-        <h2 className="text-5xl font-bold text-gray-800 mb-8">About Us</h2>
-        <p className="text-gray-600 text-lg leading-relaxed text-justify">
+    <section className="bg-white py-8 px-6  ">
+      <div className="text-center max-w-4xl mx-auto mb-4">
+        <h2 className="text-5xl font-bold text-gray-800 mb-2">About Us</h2>
+        <p className="text-gray-600 text-lg lg:text-xl  text-justify">
           Scouting is an international youth movement that teaches young people
           leadership, self-reliance, social responsibility, moral values, and
-          teamwork. It is comprised of camping, service activities, and skill
-          development.
+          teamwork. It is comprised of camping, service , and skill development.
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center gap-16 max-w-7xl mx-auto">
-        <div className="lg:w-1/2 relative h-[450px] w-full">
+      <div className="flex flex-col lg:flex-row items-center gap-10 max-w-7xl mx-auto">
+        <div className="lg:w-1/2 relative h-[200px] lg:h-[450px] w-full">
           <div className="absolute left-0 top-0 w-2/3 h-4/5 z-10">
             <img
-              src="https://i.ibb.co/VYrHGN2W/mnb3-l1ms-220926.jpg" // Replace with your actual image path
-              alt="Scout Group"
-              className="w-full h-full object-cover rounded-lg shadow-lg"
+              src="https://i.ibb.co/VYrHGN2W/mnb3-l1ms-220926.jpg"
+              className="w-full h-46 lg:h-full object-cover rounded-xl"
             />
           </div>
 
-          <div className="absolute right-4 bottom-0 w-2/3 h-4/5 z-20">
+          <div className="absolute right-1   bottom-0 w-2/3 h-4/5 z-20">
             <img
-              src="https://i.ibb.co/WWBj6fwj/full-shot-scouts-with-map-outdoors.jpg" // Replace with your actual image path
+              src="https://i.ibb.co/WWBj6fwj/full-shot-scouts-with-map-outdoors.jpg"
               alt="Scout Leader"
-              className="w-full h-full object-cover rounded-lg shadow-2xl border-8 border-white"
+              className="w-full h-46 lg:h-full object-cover rounded-xl  "
             />
           </div>
         </div>
 
         <div className="lg:w-1/2 space-y-6">
-          <p className="text-gray-700 text-lg leading-relaxed text-justify">
+          <p className="text-gray-700 text-lg lg:text-xl  leading-relaxed text-justify">
             Scouting is a global youth movement, started in 1907 by Robert
             Baden-Powell. The main goal is to develop leadership, social skills,
             empathy and self-reliance among young people. Scout programs are
@@ -54,5 +52,4 @@ const About = () => {
     </section>
   );
 };
-
 export default About;

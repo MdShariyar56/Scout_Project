@@ -69,22 +69,22 @@ const ScoutBookLibrary = () => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [activePdf]);
 
-  // modal বন্ধ হলে loader reset হবে
+  
   useEffect(() => {
     if (!activePdf) setIsLoading(false);
   }, [activePdf]);
 
   return (
-    <div className="max-h-screen bg-[#0a0f1e] text-white p-12">
-      <div className="text-center mb-12">
+    <div className="max-h-screen bg-[#0a0f1e] text-white py-12 ">
+      <div className="text-center mb-4 ">
         <h1 className="text-4xl font-bold text-blue-500 mb-4">Scout Book</h1>
-        <p className="max-w-2xl mx-auto text-gray-400">
+        <p className="max-w-2xl mx-auto text-gray-400 px-4">
           Access all Bangladesh Scouts resources and handbooks in one place.
           Select a book to start reading.
         </p>
         <div className="flex justify-center mt-4">
           <button
-            className="btn btn-sm btn-outline btn-ghost rounded-full px-6 normal-case"
+            className="btn  btn-outline hover:bg-blue-500  rounded-full px-6 normal-case"
             onClick={() => navigate("/all-books")}
           >
             See More
@@ -118,13 +118,13 @@ const ScoutBookLibrary = () => {
         className="max-w-7xl mx-auto "
       >
         {books.map((book) => (
-          <SwiperSlide key={book.id} className="mx-auto">
+          <SwiperSlide key={book.id} className="mx-auto px-4 lg:px-0">
             <div className="card bg-[#161b33] shadow-xl border border-gray-800 ">
               <figure className="px-8 pt-6">
                 <img
                   src={book.image}
                   alt={book.title}
-                  className="rounded-xl h-[280px] w-full object-contain bg-gray-800"
+                  className="rounded-xl h-[300px] w-full object-contain bg-gray-800"
                 />
               </figure>
               <div className="card-body items-center text-center">
@@ -142,7 +142,7 @@ const ScoutBookLibrary = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-<div className="custom-pagination flex justify-center mt-6"></div>
+<div className="custom-pagination flex justify-center mt-8"></div>
 
       {/* PDF Viewer Modal with Loader */}
       {activePdf && (
