@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 const ScoutBookLibrary = () => {
   const navigate = useNavigate();
   const [activePdf, setActivePdf] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const books = [
     {
@@ -22,13 +23,14 @@ const ScoutBookLibrary = () => {
       id: 3,
       title: "Code and Cipher",
       image: "https://i.ibb.co/67zGC0qZ/Untitled-design-8.png",
-      pdfUrl: "/Pdf/Code&Chiper.pdf",
+      pdfUrl: "/Pdf/CodeChiper.pdf", // ✅ public/Pdf না, শুধু /Pdf হবে
     },
   ];
 
   const firstThreeBooks = books.slice(0, 3);
 
   const handleReadMore = (url) => {
+    setIsLoading(true);
     setActivePdf(url);
   };
 
@@ -49,8 +51,15 @@ const ScoutBookLibrary = () => {
     };
   }, [activePdf]);
 
+  // modal বন্ধ হলে loader reset হবে
+  useEffect(() => {
+    if (!activePdf) {
+      setIsLoading(false);
+    }
+  }, [activePdf]);
+
   return (
-    <div  id="book" className="min-h-screen bg-[#0a0f1e] text-white p-8">
+    <div id="book" className="min-h-screen bg-[#0a0f1e] text-white p-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-blue-500 mb-4">Scout Book</h1>
         <p className="max-w-2xl mx-auto text-gray-400">
@@ -71,7 +80,7 @@ const ScoutBookLibrary = () => {
         {firstThreeBooks.map((book) => (
           <div
             key={book.id}
-            className="card bg-[#161b33] shadow-xl border border-gray-800 "
+            className="card bg-[#161b33] shadow-xl border border-gray-800"
           >
             <figure className="px-4 pt-6">
               <img
@@ -95,7 +104,7 @@ const ScoutBookLibrary = () => {
         ))}
       </div>
 
-      {/* PDF Viewer Modal using Google Docs */}
+      {/* PDF Viewer Modal with Loader */}
       {activePdf && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
@@ -107,15 +116,23 @@ const ScoutBookLibrary = () => {
           >
             <button
               onClick={() => setActivePdf(null)}
-              className="absolute top-2 left-2 btn btn-sm  text-gray-200"
+              className="absolute top-2 left-2 btn btn-sm text-gray-200 z-10"
             >
               ✕
             </button>
+
+            {/* Loader Spinner */}
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40 z-0">
+                <span className="loading loading-spinner loading-lg text-indigo-500"></span>
+              </div>
+            )}
 
             <iframe
               src={`https://docs.google.com/gview?url=${window.location.origin}${activePdf}&embedded=true`}
               title="PDF Viewer"
               className="w-full h-full"
+              onLoad={() => setIsLoading(false)}
             />
           </div>
         </div>
