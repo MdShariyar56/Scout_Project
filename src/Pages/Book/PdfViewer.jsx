@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 const ScoutBookLibrary = () => {
   const navigate = useNavigate();
+  const [activePdf, setActivePdf] = useState(null);
 
   const books = [
     {
@@ -28,11 +29,28 @@ const ScoutBookLibrary = () => {
   const firstThreeBooks = books.slice(0, 3);
 
   const handleReadMore = (url) => {
-    window.open(url, "_blank", "noopener,noreferrer");
+    setActivePdf(url);
   };
 
+  // ESC চাপলে modal বন্ধ হবে
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setActivePdf(null);
+      }
+    };
+
+    if (activePdf) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [activePdf]);
+
   return (
-    <div className="min-h-screen bg-[#0a0f1e] text-white p-8 font-sans">
+    <div className="min-h-screen bg-[#0a0f1e] text-white p-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-blue-500 mb-4">Scout Book</h1>
         <p className="max-w-2xl mx-auto text-gray-400">
@@ -59,7 +77,7 @@ const ScoutBookLibrary = () => {
               <img
                 src={book.image}
                 alt={book.title}
-                className="rounded-xl h-70 w-full "
+                className="rounded-xl h-[280px] w-full object-cover"
               />
             </figure>
             <div className="card-body items-center text-center">
@@ -76,6 +94,32 @@ const ScoutBookLibrary = () => {
           </div>
         ))}
       </div>
+
+      {/* PDF Viewer Modal using Google Docs */}
+      {activePdf && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setActivePdf(null)}
+        >
+          <div
+            className="bg-white w-full max-w-5xl h-[85vh] rounded-xl overflow-hidden relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActivePdf(null)}
+              className="absolute top-2 right-2 btn btn-sm btn-circle btn-ghost text-black"
+            >
+              ✕
+            </button>
+
+            <iframe
+              src={`https://docs.google.com/gview?url=${window.location.origin}${activePdf}&embedded=true`}
+              title="PDF Viewer"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

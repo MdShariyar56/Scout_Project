@@ -45,7 +45,7 @@ const AllBooksPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1e] text-white p-8 font-sans">
+    <div className="min-h-screen bg-[#0a0f1e] text-white p-8 ">
       <h1 className="text-4xl font-bold text-blue-500 mb-6 text-center">
         All Scout Books
       </h1>
