@@ -73,7 +73,7 @@ const HeroSlider = () => {
                 transition={{ duration: 1 }}
               >
                 <h1
-                  className="text-lg sm:text-2xl md:text-4xl lg:text-3xl 
+                  className="text-lg  sm:text-2xl md:text-4xl lg:text-3xl 
                                font-bold tracking-wide mb-6 
                                text-white leading-snug "
                 >

@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Lottie from "lottie-react";
+import BgLottie from "../../assets/Pdfloader.json";
+
+// Swiper v10+ style imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ScoutBookLibrary = () => {
   const navigate = useNavigate();
@@ -23,11 +33,27 @@ const ScoutBookLibrary = () => {
       id: 3,
       title: "Code and Cipher",
       image: "https://i.ibb.co/67zGC0qZ/Untitled-design-8.png",
-      pdfUrl: "/Pdf/CodeChiper.pdf", // ✅ public/Pdf না, শুধু /Pdf হবে
+      pdfUrl: "/Pdf/CodeChiper.pdf",
+    },
+    {
+      id: 4,
+      title: "Pioneering",
+      image: "https://i.ibb.co/Kx9LXS17/Screenshot-2026-02-17-125410-Picsart-Ai-Image-Enhancer.png",
+      pdfUrl: "/Pdf/Pioneering.pdf",
+    },
+    {
+      id: 5,
+      title: "Scout Sports",
+      image: "https://i.ibb.co/Y741Q9rg/Screenshot-2026-02-17-142119-Picsart-Ai-Image-Enhancer.png",
+      pdfUrl: "/Pdf/Paying.pdf",
+    },
+    {
+      id: 6,
+      title: "Scout Shop Price List",
+      image: "https://i.ibb.co/27Xnmm1r/Untitled-design-9-01.jpg",
+      pdfUrl: "/Pdf/bf5f3d2216424f6a84c6eb8cdba173ed.pdf",
     },
   ];
-
-  const firstThreeBooks = books.slice(0, 3);
 
   const handleReadMore = (url) => {
     setIsLoading(true);
@@ -37,29 +63,19 @@ const ScoutBookLibrary = () => {
   // ESC চাপলে modal বন্ধ হবে
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        setActivePdf(null);
-      }
+      if (e.key === "Escape") setActivePdf(null);
     };
-
-    if (activePdf) {
-      window.addEventListener("keydown", handleEsc);
-    }
-
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
+    if (activePdf) window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, [activePdf]);
 
   // modal বন্ধ হলে loader reset হবে
   useEffect(() => {
-    if (!activePdf) {
-      setIsLoading(false);
-    }
+    if (!activePdf) setIsLoading(false);
   }, [activePdf]);
 
   return (
-    <div id="book" className="min-h-screen bg-[#0a0f1e] text-white p-8">
+    <div className="max-h-screen bg-[#0a0f1e] text-white p-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-blue-500 mb-4">Scout Book</h1>
         <p className="max-w-2xl mx-auto text-gray-400">
@@ -76,33 +92,57 @@ const ScoutBookLibrary = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {firstThreeBooks.map((book) => (
-          <div
-            key={book.id}
-            className="card bg-[#161b33] shadow-xl border border-gray-800"
-          >
-            <figure className="px-4 pt-6">
-              <img
-                src={book.image}
-                alt={book.title}
-                className="rounded-xl h-[280px] w-full object-contain bg-gray-800"
-              />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title text-xl mb-4">{book.title}</h2>
-              <div className="card-actions">
-                <button
-                  onClick={() => handleReadMore(book.pdfUrl)}
-                  className="btn btn-primary bg-indigo-900 border-none hover:bg-indigo-800 rounded-full px-8 text-gray-300"
-                >
-                  Read More
-                </button>
+      {/* Swiper Slider for all books */}
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          480: { slidesPerView: 1, spaceBetween: 15 },
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 25 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+          1280: { slidesPerView: 3, spaceBetween: 35 },
+          1536: { slidesPerView: 5, spaceBetween: 40 },
+        }}
+        
+         pagination={{
+    el: '.custom-pagination', // এখানে attach করব
+    clickable: true,
+  }}
+        autoplay={{ delay: 3500, disableOnInteraction: false ,
+            pauseOnMouseEnter: true  
+        }}
+        
+        loop
+        className="max-w-7xl mx-auto "
+      >
+        {books.map((book) => (
+          <SwiperSlide key={book.id} className="mx-auto">
+            <div className="card bg-[#161b33] shadow-xl border border-gray-800 ">
+              <figure className="px-8 pt-6">
+                <img
+                  src={book.image}
+                  alt={book.title}
+                  className="rounded-xl h-[280px] w-full object-contain bg-gray-800"
+                />
+              </figure>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title text-xl mb-4">{book.title}</h2>
+                <div className="card-actions">
+                  <button
+                    onClick={() => handleReadMore(book.pdfUrl)}
+                    className="btn btn-primary bg-indigo-900 border-none hover:bg-indigo-800 rounded-full px-8 text-gray-300 "
+                  >
+                    Read More
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+<div className="custom-pagination flex justify-center mt-6"></div>
 
       {/* PDF Viewer Modal with Loader */}
       {activePdf && (
@@ -121,10 +161,9 @@ const ScoutBookLibrary = () => {
               ✕
             </button>
 
-            {/* Loader Spinner */}
             {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 z-0">
-                <span className="loading loading-spinner loading-lg text-indigo-500"></span>
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 z-0">
+                <Lottie animationData={BgLottie} loop className="w-40 h-40 scale-125" />
               </div>
             )}
 

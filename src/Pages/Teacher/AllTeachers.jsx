@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router";
 
-const Teachers = () => {
+const AllTeachers = () => {
   const teachers = [
     {
       id: 1,
@@ -27,20 +26,17 @@ const Teachers = () => {
   ];
 
   return (
-    <div className="bg-[#020617] text-white py-8 px-4 min-h-screen">
+    <div className="bg-[#020617] text-white py-16 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-blue-500 mb-4">
-            Scout Unite Teachers
+            Scout Unite All Teachers
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 text-sm md:text-base mb-6">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s.
           </p>
-          <Link to="/all-teachers" className="btn btn-outline btn-sm rounded-full px-6 border-gray-700 hover:bg-gray-800 text-gray-400">
-            See More
-          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
@@ -84,4 +80,4 @@ const Teachers = () => {
   );
 };
 
-export default Teachers;
+export default AllTeachers;

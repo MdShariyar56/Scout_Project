@@ -6,7 +6,7 @@ import LoginPage from "../Pages/Auth/Login";
 import TeacherRegister from "../Pages/Auth/TeacherRegister";
 import SelectPage from "../Pages/Auth/SelectPage";
 import AllBooksPage from "../Pages/Book/AllBooksPage";
-import About from "../Pages/About";
+import AllTeachers from "../Pages/Teacher/AllTeachers";
 
 
 export const router = createBrowserRouter([
@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: "/all-books",
                 element: <AllBooksPage></AllBooksPage>
+            },
+            {
+              path: "/all-teachers",
+              element: <AllTeachers></AllTeachers>
             }
             
         ]

@@ -14,4 +14,33 @@ body{
 }
 
 
- 
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;       /* default small screen */
+  height: 12px;
+  margin: 0 4px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+/* medium screens - md: 768px+ */
+@media (min-width: 768px) {
+  .custom-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0 6px;
+  }
+}
+
+/* large screens - lg: 1024px+ */
+@media (min-width: 1024px) {
+  .custom-pagination .swiper-pagination-bullet {
+    width: 13px;
+    height: 13px;
+    margin: 0 8px;
+  }
+}
+
+/* active dot color */
+.custom-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: blue;
+}
