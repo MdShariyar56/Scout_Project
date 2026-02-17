@@ -77,14 +77,6 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="#eventvideo"
-              className={`${linkStyle} ${activeSection === "education" ? activeStyle : ""}`}
-            >
-             <BiSolidVideos size={22} /> EVENTVIDEO
-            </a>
-          </li>
-          <li>
-            <a
               href="#members"
               className={`${linkStyle} ${activeSection === "service" ? activeStyle : ""}`}
             >
@@ -143,15 +135,6 @@ const Navbar = () => {
               className={`${linkStyle} ${activeSection === "skills" ? activeStyle : ""}`}
             >
               <FaBook size={20} /> SCOUTBOOK
-            </a>
-          </li>
-            <li>
-            <a
-              href="#eventvideo"
-              onClick={() => setOpen(false)}
-              className={`${linkStyle} ${activeSection === "education" ? activeStyle : ""}`}
-            >
-             <BiSolidVideos size={22} /> EVENTVIDEO
             </a>
           </li>
           <li>

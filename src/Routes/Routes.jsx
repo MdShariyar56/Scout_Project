@@ -6,6 +6,7 @@ import LoginPage from "../Pages/Auth/Login";
 import TeacherRegister from "../Pages/Auth/TeacherRegister";
 import SelectPage from "../Pages/Auth/SelectPage";
 import AllBooksPage from "../Pages/Book/AllBooksPage";
+import About from "../Pages/About";
 
 
 export const router = createBrowserRouter([

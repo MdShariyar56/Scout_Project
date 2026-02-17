@@ -62,7 +62,7 @@ const HeroSlider = () => {
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               {/* Overlay */}
-              {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div> */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
 
               <motion.div
                 className="relative z-10 flex flex-col justify-center h-full 
@@ -75,7 +75,7 @@ const HeroSlider = () => {
                 <h1
                   className="text-lg sm:text-2xl md:text-4xl lg:text-3xl 
                                font-bold tracking-wide mb-6 
-                               text-[#81BFF1] leading-snug "
+                               text-white leading-snug "
                 >
                   <Typewriter
                     words={[slide.title]}
