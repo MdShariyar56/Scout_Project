@@ -103,7 +103,7 @@ const ScoutBookLibrary = () => {
           768: { slidesPerView: 2, spaceBetween: 25 },
           1024: { slidesPerView: 3, spaceBetween: 30 },
           1280: { slidesPerView: 3, spaceBetween: 35 },
-          1536: { slidesPerView: 5, spaceBetween: 40 },
+          
         }}
         
          pagination={{
