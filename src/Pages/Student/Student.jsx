@@ -39,7 +39,7 @@ const Student = () => {
   ];
 
   return (
-    <div className="bg-[#020617] text-white py-16 px-4">
+    <div className="bg-[#FFFFFF]/80 text-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-blue-500 mb-4">
