@@ -5,6 +5,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Link } from "react-router";
 
 const Student = () => {
   const students = [
@@ -48,9 +49,9 @@ const Student = () => {
           <p className="max-w-2xl mx-auto text-gray-400 text-sm md:text-base mb-6">
             Meet our active students who are learning and growing with Scouts.
           </p>
-          <button className="btn btn-outline hover:bg-blue-500  rounded-full px-6 normal-case">
+          <Link to="/all-students" className="btn btn-outline hover:bg-blue-500  rounded-full px-6 normal-case">
             See More
-          </button>
+          </Link>
         </div>
 
         <Swiper

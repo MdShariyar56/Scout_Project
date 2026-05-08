@@ -23,7 +23,8 @@ const SelectPage = () => {
       <div className=" flex justify-center items-center ">
         <div className="flex flex-col justify-center items-center gap-6">
           <Link
-            to="/tregister"
+            to="/Tregister"
+            onClick={() => localStorage.setItem("role", "teacher")}
             className="border-4 border-blue-500 rounded-xl px-20 py-6 "
           >
             <img
@@ -36,7 +37,8 @@ const SelectPage = () => {
             </p>
           </Link>
           <Link
-            to="/register"
+            to="/Sregister"
+            onClick={() => localStorage.setItem("role", "student")}
             className="border-4 border-blue-500 rounded-xl px-20 py-6"
           >
             <img

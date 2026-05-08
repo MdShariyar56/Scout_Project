@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import { AiFillProduct } from "react-icons/ai";
-import { FaBook, FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { RiLoginBoxFill, RiProfileFill } from "react-icons/ri";
 import { Link } from "react-router";
 
 const Navbar = () => {
@@ -32,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   const linkStyle =
-    "flex gap-2 items-center px-4 py-2 rounded-full font-medium hover:bg-blue-400 hover:text-white transition-all";
+    "flex gap-2 items-center px-2 py-2 rounded-full font-medium hover:bg-blue-400 hover:text-white transition-all";
   const activeStyle = "bg-blue-300 text-[#183883]";
 
   return (
@@ -56,48 +53,53 @@ const Navbar = () => {
                 activeSection === "home" ? activeStyle : ""
               }`}
             >
-              <FaHome size={20} /> HOME
+              HOME
             </Link>
           </li>
+
+          {/* Desktop Dropdown */}
           <li>
-            <a
-              href="#about"
-              className={`${linkStyle} ${
-                activeSection === "about" ? activeStyle : ""
-              }`}
-            >
-              <AiFillProduct size={20} /> ABOUT
-            </a>
-          </li>
-          <li>
-            <a
-              href="#Book"
+            <Link to="/addTeacher"
+                  
               className={`${linkStyle} ${
                 activeSection === "Book" ? activeStyle : ""
               }`}
             >
-              <FaBook size={20} /> SCOUTBOOK
-            </a>
+              ADDTEACHER
+            </Link>
           </li>
 
-          {/* Desktop Dropdown */}
-          <li className="relative group">
-            <div className={`${linkStyle} cursor-pointer`}>
-              <RiProfileFill size={22} /> MEMBERS
-            </div>
-            <ul className="absolute left-0 top-full mt-3 hidden group-hover:block bg-white rounded-xl shadow-lg w-44 overflow-hidden">
-              <li>
-                <a className="block px-4 py-2 hover:bg-blue-400 hover:text-white cursor-pointer">
-                   Teachers
-                </a>
-              </li>
-              <li>
-                <a className="block px-4 py-2 hover:bg-blue-400 hover:text-white cursor-pointer">
-                 
-                  Students
-                </a>
-              </li>
-            </ul>
+          <li>
+            <Link to="/AddStudent"
+             
+              className={`${linkStyle} ${
+                activeSection === "Book" ? activeStyle : ""
+              }`}
+            >
+              ADDSTUDENT
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/all-teachers"
+             
+              className={`${linkStyle} ${
+                activeSection === "Book" ? activeStyle : ""
+              }`}
+            >
+              TEACHER
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/all-students"
+              
+              className={`${linkStyle} ${
+                activeSection === "Book" ? activeStyle : ""
+              }`}
+            >
+              STUDENT
+            </Link>
           </li>
 
           <li>
@@ -107,17 +109,14 @@ const Navbar = () => {
                 activeSection === "service" ? activeStyle : ""
               }`}
             >
-              <RiLoginBoxFill size={22} /> LOGIN
+              LOGIN
             </Link>
           </li>
         </ul>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex justify-end flex-1">
-          <button
-            className="text-2xl font-bold"
-            onClick={() => setOpen(!open)}
-          >
+          <button className="text-2xl font-bold" onClick={() => setOpen(!open)}>
             {open ? <FiX size={26} /> : <GiHamburgerMenu size={20} />}
           </button>
         </div>
@@ -136,31 +135,11 @@ const Navbar = () => {
                 activeSection === "home" ? activeStyle : ""
               }`}
             >
-              <FaHome size={20} /> HOME
+              HOME
             </Link>
           </li>
-          <li>
-            <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className={`${linkStyle} ${
-                activeSection === "about" ? activeStyle : ""
-              }`}
-            >
-              <AiFillProduct size={20} /> ABOUT
-            </a>
-          </li>
-          <li>
-            <a
-              href="#Book"
-              onClick={() => setOpen(false)}
-              className={`${linkStyle} ${
-                activeSection === "Book" ? activeStyle : ""
-              }`}
-            >
-              <FaBook size={20} /> SCOUTBOOK
-            </a>
-          </li>
+          
+          
 
           {/* Mobile Dropdown with click */}
           <li className="relative">
@@ -168,7 +147,7 @@ const Navbar = () => {
               className={`${linkStyle} cursor-pointer`}
               onClick={() => setMemberOpen(!memberOpen)}
             >
-              <RiProfileFill size={22} /> MEMBERS
+               MEMBERS
             </div>
             <ul
               className={`bg-white rounded-xl shadow-lg w-44 overflow-hidden mt-2 transition-all ${
@@ -180,7 +159,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-blue-400 hover:text-white cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
-                Teachers
+                  Teachers
                 </a>
               </li>
               <li>
@@ -188,8 +167,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-blue-400 hover:text-white cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
-                    Students
-                  
+                  Students
                 </a>
               </li>
             </ul>
@@ -203,7 +181,7 @@ const Navbar = () => {
                 activeSection === "service" ? activeStyle : ""
               }`}
             >
-              <RiLoginBoxFill size={22} /> LOGIN
+               LOGIN
             </Link>
           </li>
         </ul>
