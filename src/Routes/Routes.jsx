@@ -5,7 +5,6 @@ import LoginPage from "../Pages/Auth/Login";
 import TeacherRegister from "../Pages/Auth/TeacherRegister";
 import SelectPage from "../Pages/Auth/SelectPage";
 import AllBooksPage from "../Pages/Book/AllBooksPage";
-import AllTeachers from "../Pages/Teacher/AllTeachers";
 import AllStudents from "../Pages/Student/AllStudents";
 import AddStudent from "../Pages/Student/AddStudent";
 import AddTeacher from "../Pages/Teacher/AddTeacher";
@@ -13,6 +12,8 @@ import StudentRegister from "../Pages/Auth/StudentRegister";
 import EventsList from "../Pages/EventsList/EventsList";
 import AddEvent from "../Pages/EventsList/EventAdd";
 import EventDetails from "../Pages/EventsList/EventDetails";
+import TeacherDetails from "../Pages/Teacher/TeacherDetails";
+import TeachersList from "../Pages/Teacher/TeachersList";
 
 
 export const router = createBrowserRouter([
@@ -30,11 +31,16 @@ export const router = createBrowserRouter([
                 element: <AllBooksPage></AllBooksPage>
             },
             {
-              path: "/all-teachers",
-              element: <AllTeachers></AllTeachers>
+              path: "/TeachersList",
+              element: <TeachersList></TeachersList>
             },
             {
-              path: "/addTeacher",
+              path: "/teachers/:id",
+              element: <TeacherDetails></TeacherDetails>
+            }
+            ,
+            {
+              path: "/teachers/add",
               element: <AddTeacher></AddTeacher>
             },
             

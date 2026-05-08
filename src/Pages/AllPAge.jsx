@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSlider from './HeroSlider';
 import About from './About';
 import PdfViewer from './Book/PdfViewer';
-import Teachers from './Teacher/Teachers';
+import Teachers from './Teacher/TeachersList';
 import Student from './Student/Student';
 import EventsList from './EventsList/EventsList';
 
